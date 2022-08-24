@@ -37,3 +37,4 @@ sandbox/out/production/classes/ru/stqa/Java_SoftwareTesting/sandbox/Point.class
 sandbox/out/production/classes/ru/stqa/Java_SoftwareTesting/sandbox/Rectangle.class
 sandbox/out/production/classes/ru/stqa/Java_SoftwareTesting/sandbox/Square.class
 sandbox/out/test/classes/ru/stqa/Java_SoftwareTesting/sandbox/SquareTests.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/GroupCreationTests.class

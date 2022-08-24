@@ -1,0 +1,9 @@
+apply plugin: 'java'
+s
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation  'org.testng:testng:7.3.0'
+}
