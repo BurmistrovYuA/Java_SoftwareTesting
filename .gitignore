@@ -18,4 +18,5 @@ sandbox/build/classes/java/main/MyFirstProgram.class
 sandbox/build/libs/sandbox.jar
 sandbox/build/tmp/compileJava/previous-compilation-data.bin
 sandbox/build/tmp/jar/MANIFEST.MF
+sandbox/out/
 .gitignore.bak
