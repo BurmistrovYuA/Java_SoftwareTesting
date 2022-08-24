@@ -43,3 +43,11 @@ addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/NewCardTests.clas
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/DeleteGroupTest.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/TestBase.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/CardData.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ApplicationManager.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/CardData.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/GroupData.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupCreationTests.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/DeleteGroupTest.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/DeleteGroupTest.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/TestBase.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/NewCardTests.class
