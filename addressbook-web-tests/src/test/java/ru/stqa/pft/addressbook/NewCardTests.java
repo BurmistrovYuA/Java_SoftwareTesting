@@ -36,27 +36,27 @@ public class NewCardTests {
   @Test
   public void testNewCard() throws Exception {
     initCreation();
-    fillCardForm("Yuriy", "Burmistrov", "Rnd", "89999999999", "Burmistrov@yandex.ru");
+    fillCardForm(new CardData("Yuriy", "Burmistrov", "Rnd", "89999999999", "Burmistrov@yandex.ru"));
     submitCardCreation();
     returnToHomePage();
   }
 
-  private void fillCardForm(String name, String last_name, String address, String phones, String email) {
+  private void fillCardForm(CardData cardData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(name);
+    wd.findElement(By.name("firstname")).sendKeys(cardData.getName());
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(last_name);
+    wd.findElement(By.name("lastname")).sendKeys(cardData.getLast_name());
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(address);
+    wd.findElement(By.name("address")).sendKeys(cardData.getAddress());
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(phones);
+    wd.findElement(By.name("home")).sendKeys(cardData.getPhones());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(email);
+    wd.findElement(By.name("email")).sendKeys(cardData.getEmail());
   }
 
   private void submitCardCreation() {
