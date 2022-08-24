@@ -7,13 +7,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class NewCardTests {
-  private WebDriver wd;
-
+public class TestBase {
+  public WebDriver wd;
 
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
@@ -32,46 +30,36 @@ public class NewCardTests {
     wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
-
-  @Test
-  public void testNewCard() throws Exception {
-    initCreation();
-    fillCardForm(new CardData("Yuriy", "Burmistrov", "Rnd", "89999999999", "Burmistrov@yandex.ru"));
-    submitCardCreation();
-    returnToHomePage();
+  protected void returnTogroupPage() {
+    wd.findElement(By.linkText("groups")).click();
   }
 
-  private void fillCardForm(CardData cardData) {
-    wd.findElement(By.name("firstname")).click();
-    wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(cardData.getName());
-    wd.findElement(By.name("lastname")).click();
-    wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(cardData.getLast_name());
-    wd.findElement(By.name("address")).click();
-    wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(cardData.getAddress());
-    wd.findElement(By.name("home")).click();
-    wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(cardData.getPhones());
-    wd.findElement(By.name("email")).click();
-    wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(cardData.getEmail());
+  protected void submitGroupCreation() {
+    wd.findElement(By.name("submit")).click();
   }
 
-  private void submitCardCreation() {
-    wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+  protected void fillGroupForm(GroupData groupData) {
+    wd.findElement(By.name("group_name")).click();
+    wd.findElement(By.name("group_name")).clear();
+    wd.findElement(By.name("group_name")).sendKeys(groupData.getName());
+    wd.findElement(By.xpath("//form[@action='/addressbook/group.php']")).click();
+    wd.findElement(By.name("group_header")).click();
+    wd.findElement(By.name("group_header")).clear();
+    wd.findElement(By.name("group_header")).sendKeys(groupData.getHeader());
+    wd.findElement(By.name("group_footer")).clear();
+    wd.findElement(By.name("group_footer")).sendKeys(groupData.getFooter());
   }
 
-  private void returnToHomePage() {
-    wd.findElement(By.linkText("home page")).click();
+  protected void initGroupCreation() {
+    wd.findElement(By.name("new")).click();
   }
 
-  private void initCreation() {
-    wd.findElement(By.linkText("add new")).click();
+  protected void gotoGroupPage() {
+    wd.findElement(By.linkText("groups")).click();
   }
 
   @AfterMethod(alwaysRun = true)
+
   public void tearDown() throws Exception {
     wd.findElement(By.linkText("Logout")).click();
     wd.quit();
@@ -95,5 +83,11 @@ public class NewCardTests {
     }
   }
 
+  protected void deleteSelectedGroups() {
+    wd.findElement(By.name("delete")).click();
+  }
 
+  protected void selectGroup() {
+    wd.findElement(By.name("selected[]")).click();
+  }
 }

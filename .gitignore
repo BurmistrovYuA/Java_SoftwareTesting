@@ -40,3 +40,6 @@ sandbox/out/test/classes/ru/stqa/Java_SoftwareTesting/sandbox/SquareTests.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/GroupCreationTests.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/GroupData.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/NewCardTests.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/DeleteGroupTest.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/TestBase.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/CardData.class
