@@ -6,19 +6,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class ApplicationManager extends ContactHelper{
+public class ApplicationManager {
   WebDriver wd;
 
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
 
-  private ContactHelper contactHelper;
+
 
   public void init() {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-  //  wd.get("http://localhost/addressbook/edit.php");
+    wd.get("http://localhost/addressbook/edit.php");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
