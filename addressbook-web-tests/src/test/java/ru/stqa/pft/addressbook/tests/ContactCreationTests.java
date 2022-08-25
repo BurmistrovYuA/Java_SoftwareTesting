@@ -8,11 +8,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.model.CardData;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.time.Duration;
 
-public class NewCardTests {
+public class ContactCreationTests {
   private WebDriver wd;
 
 
@@ -35,32 +35,32 @@ public class NewCardTests {
 
 
   @Test
-  public void testNewCard() throws Exception {
+  public void testNewContact() throws Exception {
     initCreation();
-    fillCardForm(new CardData("Yuriy", "Burmistrov", "Rnd", "89999999999", "Burmistrov@yandex.ru"));
-    submitCardCreation();
+    fillContactForm(new ContactData("Yuriy", "Burmistrov", "Rnd", "89999999999", "Burmistrov@yandex.ru"));
+    submitContactCreation();
     returnToHomePage();
   }
 
-  private void fillCardForm(CardData cardData) {
+  private void fillContactForm(ContactData ContactData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(cardData.getName());
+    wd.findElement(By.name("firstname")).sendKeys(ContactData.getName());
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(cardData.getLast_name());
+    wd.findElement(By.name("lastname")).sendKeys(ContactData.getLast_name());
     wd.findElement(By.name("address")).click();
     wd.findElement(By.name("address")).clear();
-    wd.findElement(By.name("address")).sendKeys(cardData.getAddress());
+    wd.findElement(By.name("address")).sendKeys(ContactData.getAddress());
     wd.findElement(By.name("home")).click();
     wd.findElement(By.name("home")).clear();
-    wd.findElement(By.name("home")).sendKeys(cardData.getPhones());
+    wd.findElement(By.name("home")).sendKeys(ContactData.getPhones());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(cardData.getEmail());
+    wd.findElement(By.name("email")).sendKeys(ContactData.getEmail());
   }
 
-  private void submitCardCreation() {
+  private void submitContactCreation() {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
