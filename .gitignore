@@ -54,3 +54,5 @@ addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/NewCardTest
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/GroupHelper.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/NavigationHelper.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/SessionHelper.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupDeletionTest.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/GroupModificationTests.class

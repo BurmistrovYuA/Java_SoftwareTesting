@@ -10,9 +10,9 @@ public class GroupHelper extends HelperBase {
     super(wd);
   }
 
-//  public void returnTogroupPage() {    wd.findElement(By.linkText("groups")).click();  }
-
-  public void submitGroupCreation() {    click(By.name("submit"));  }
+  public void submitGroupCreation() {
+    click(By.name("submit"));
+  }
 
   public void fillGroupForm(GroupData groupData) {
     type(By.name("group_name"), groupData.getName());
@@ -36,4 +36,9 @@ public class GroupHelper extends HelperBase {
     click(By.linkText("group page"));
   }
 
+  public void initGroupModification() { click(By.name("edit"));
+  }
+
+  public void submitGroupModification() { click(By.name("update"));
+  }
 }
