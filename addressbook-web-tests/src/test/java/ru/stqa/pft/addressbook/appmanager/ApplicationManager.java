@@ -7,13 +7,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class ApplicationManager {
-  WebDriver wd;
 
+  private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
 
-
+  WebDriver wd;
 
   public void init() {
     wd = new ChromeDriver();
@@ -22,6 +22,7 @@ public class ApplicationManager {
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
     sessionHelper.login("admin", "secret");
   }
 
@@ -41,5 +42,11 @@ public class ApplicationManager {
 
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
+  }
+
+
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
   }
 }
