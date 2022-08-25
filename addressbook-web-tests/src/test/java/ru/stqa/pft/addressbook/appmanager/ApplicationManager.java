@@ -13,15 +13,7 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
 
-/*
-  public boolean isAlertPresent() {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }*/
+
 
   public void init() {
     wd = new ChromeDriver();
@@ -39,15 +31,7 @@ public class ApplicationManager {
     wd.findElement(By.linkText("Logout")).click();
     wd.quit();
   }
-/*
-  public boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }*/
+
 
 
 
