@@ -8,8 +8,9 @@ public class ContactHelper extends HelperBase {
 
 
   public ContactHelper(WebDriver wd) {
-    super(wd);
+        super(wd);
   }
+
   public void fillContactForm(ContactData ContactData) {
     type(By.name("firstname"), ContactData.getName());
     type(By.name("lastname"), ContactData.getLast_name());

@@ -36,9 +36,11 @@ public class GroupHelper extends HelperBase {
     click(By.linkText("group page"));
   }
 
-  public void initGroupModification() { click(By.name("edit"));
+  public void initGroupModification() {
+    click(By.name("edit"));
   }
 
-  public void submitGroupModification() { click(By.name("update"));
+  public void submitGroupModification() {
+    click(By.name("update"));
   }
 }
