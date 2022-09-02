@@ -17,12 +17,14 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
 
   WebDriver wd;
+  private String browser;
 
+  public ApplicationManager(String browser) {
+    this.browser = browser;
+  }
 
 
   public void init() {
-
-    String browser = BrowserType.CHROME;
     if (browser.equals(BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
@@ -30,10 +32,6 @@ public class ApplicationManager {
     } else if (browser.equals(BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
-
-  //  wd = new ChromeDriver();
-
-  //  wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     wd.get("http://localhost/addressbook/edit.php");
     groupHelper = new GroupHelper(wd);
@@ -60,5 +58,8 @@ public class ApplicationManager {
 
   public ContactHelper getContactHelper() {
     return contactHelper;
-  }
+  }/*
+  public SessionHelper getSessionHelper() {
+    return sessionHelper;
+  }*/
 }
