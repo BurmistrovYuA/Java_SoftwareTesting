@@ -17,14 +17,12 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
 
   WebDriver wd;
-  private String browser;
 
-  public ApplicationManager(String browser) {
-    this.browser = browser;
-  }
+
 
   public void init() {
-    String browser = BrowserType.FIREFOX;
+
+    String browser = BrowserType.CHROME;
     if (browser.equals(BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
@@ -32,6 +30,8 @@ public class ApplicationManager {
     } else if (browser.equals(BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
+
+  //  wd = new ChromeDriver();
 
   //  wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
