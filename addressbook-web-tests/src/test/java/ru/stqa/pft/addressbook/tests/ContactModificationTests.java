@@ -15,6 +15,12 @@ public class ContactModificationTests  extends TestBase {
   }
 
 }
+/*
+    app.getNavigationHelper().gotoToHomePage();
+    app.getContactHelper().initContactCreation();
+    app.getContactHelper().fillContactForm(new ContactData("test1", "Burmistrov", "Rnd", "89999999999", "Burmistrov@yandex.ru", "test1"), true);
+    app.getContactHelper().submitContactCreation();
+    app.getNavigationHelper().returnToHomePage();*/
 
 
 
