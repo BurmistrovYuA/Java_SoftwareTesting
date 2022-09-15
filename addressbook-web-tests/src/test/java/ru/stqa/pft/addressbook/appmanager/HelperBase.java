@@ -44,14 +44,4 @@ public class HelperBase {
       return false;
     }
   }
-  /*
-  public boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }*/
-
 }
