@@ -32,7 +32,7 @@ public class ApplicationManager {
     } else if (browser.equals(BrowserType.IE)) {
       wd = new InternetExplorerDriver();
     }
-    wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     wd.get("http://localhost/addressbook/edit.php");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
