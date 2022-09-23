@@ -3,8 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
@@ -16,34 +14,13 @@ public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
         super(wd);
   }
-/*
-  public void fillContactForm(ContactData contactData, boolean creation) {
-    type(By.name("firstname"), contactData.getName());
-    type(By.name("lastname"), contactData.getLast_name());
-    type(By.name("address"), contactData.getAddress());
-    type(By.name("home"), contactData.getPhones());
-    type(By.name("email"), contactData.getEmail());
-    if ((creation)) {
-      new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
-    } else {
-      Assert.assertFalse(isElementPresent(By.name("new group")));
-    }
-  }*/
 
-  public void fillContactForm(ContactData contactsData, boolean creation) {
+  public void fillContactForm(ContactData contactsData) {
     type(By.name("firstname"), contactsData.getName());
     type(By.name("lastname"), contactsData.getLast_name());
     type(By.name("home"), contactsData.getPhones());
     type(By.name("email"), contactsData.getEmail());
     type(By.name("address"), contactsData.getAddress());
-
-    if (creation) {
-      new Select(wd.findElement(By.xpath("//*[@name='new_group']"))).selectByVisibleText(contactsData.getGroup());
-    } else {
-      Assert.assertFalse(isElementPresent(By.xpath("//*[@name='new_group']")));
-    }
-    click(By.xpath("//*/text()[normalize-space(.)='']/parent::*"));
-    click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
   public void submitContactCreation() {
@@ -79,9 +56,9 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
-  public void createContact(ContactData contact, boolean b) {
+  public void createContact(ContactData contact) {
     initContactCreation();
-    fillContactForm(contact, b);
+    fillContactForm(contact);
     submitContactCreation();
     returnToHomePage();
   }
