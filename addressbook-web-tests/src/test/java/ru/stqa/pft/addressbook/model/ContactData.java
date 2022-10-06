@@ -25,11 +25,11 @@ public class ContactData {
   public File getPhoto() { return photo; }
   public String getAllEmails() { return allEmails;}
   public int getId() { return id; }
-  public String getName() { return name; }
+  public String getFirstname() { return name; }
   public String getMiddlename() {
     return middlename;
   }
-  public String getLast_name() {
+  public String getLastname() {
     return last_name;
   }
   public String getNickname() { return nickname; }
