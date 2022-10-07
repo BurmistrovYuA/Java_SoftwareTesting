@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.generators;
-
+//-c 2 -f src/test/resources/contacts.json -d json
+//C:\Users\car2f\Documents\GitHub\Java_SoftwareTesting\addressbook-web-tests
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
