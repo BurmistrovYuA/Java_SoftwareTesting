@@ -7,8 +7,8 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
+
 import java.util.List;
 
 public class HbConnectionTest {
@@ -21,8 +21,10 @@ public class HbConnectionTest {
             .configure() // configures settings from hibernate.cfg.xml
             .build();
     try {
-      sessionFactory = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-    } catch (Exception e) {
+      sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
+    }
+    catch (Exception e) {
+      e.printStackTrace();
       //The registry would be destroyed by the SessionFactory, but we had trouble building the
       // so destroy it manually
       StandardServiceRegistryBuilder.destroy(registry);
@@ -39,7 +41,7 @@ public class HbConnectionTest {
     session.getTransaction().commit();
     session.close();
   }
-
+/*
   @Test(enabled = false)
   public void testHbConnectionContact() {
     Session session = sessionFactory.openSession();
@@ -50,5 +52,5 @@ public class HbConnectionTest {
     }
     session.getTransaction().commit();
     session.close();
-  }
+  }*/
 }
