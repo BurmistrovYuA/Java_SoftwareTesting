@@ -3,19 +3,34 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
+
 @XStreamAlias("group")
+@Entity
+@Table(name="group_list")
 
 public class GroupData {
   @XStreamOmitField
-  private int id = Integer.MAX_VALUE;
+  @Id
+  @Column(name="group_id")
+  private  int id=Integer.MAX_VALUE;
   @Expose
-  private String name;
+  @Column(name="group_name")
+  private  String groupName;
   @Expose
-  private String header;
+  @Column(name="group_header")
+  @Type(type="text")
+  private  String groupHeader;
   @Expose
-  private String footer;
+  @Column(name="group_footer")
+  @Type(type="text")
+  private  String groupFooter;
 
   public int getId() {
     return id;
@@ -29,53 +44,53 @@ public class GroupData {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-
     GroupData groupData = (GroupData) o;
-
-    if (id != groupData.id) return false;
-    return Objects.equals(name, groupData.name);
+    return id == groupData.id && Objects.equals(groupName, groupData.groupName)
+            && Objects.equals(groupHeader, groupData.groupHeader)
+            && Objects.equals(groupFooter, groupData.groupFooter);
   }
+
 
   @Override
   public int hashCode() {
-    int result = id;
-    result = 31 * result + (name != null ? name.hashCode() : 0);
-    return result;
+    return Objects.hash(id, groupName, groupHeader, groupFooter);
   }
 
   public GroupData withName(String name) {
-    this.name = name;
+    this.groupName  = name;
     return this;
   }
 
   public GroupData withHeader(String header) {
-    this.header = header;
+    this.groupHeader  = header;
     return this;
   }
 
   public GroupData withFooter(String footer) {
-    this.footer = footer;
+    this.groupFooter  = footer;
     return this;
   }
 
   @Override
   public String toString() {
     return "GroupData{" +
-            "id='" + id + '\'' +
-            ", name='" + name + '\'' +
+            "id=" + id +
+            ", groupName='" + groupName + '\'' +
+            ", groupHeader='" + groupHeader + '\'' +
+            ", groupFooter='" + groupFooter + '\'' +
             '}';
   }
 
   public String getName() {
-    return name;
+    return groupName;
   }
 
   public String getHeader() {
-    return header;
+    return groupHeader;
   }
 
   public String getFooter() {
-    return footer;
+    return groupFooter;
   }
 
 }
