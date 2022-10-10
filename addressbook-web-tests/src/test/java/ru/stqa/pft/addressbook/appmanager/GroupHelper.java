@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +33,7 @@ public class GroupHelper extends HelperBase {
   }
 
   private void selectGroupById(int id) {
-    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();;
+    wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
   public void returnToGroupPage() {
     click(By.linkText("group page"));
