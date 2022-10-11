@@ -9,21 +9,22 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class GroupModificationTests extends TestBase {
-/*
-@BeforeMethod
-public void ensurePreconditions(){
-  app.goTo().groupPage();
-  if (app.group().all().size() == 0) {
-    app.group().create(new GroupData().withName("test1"));
-  }
-}*/
-@BeforeMethod
-public void ensurePreconditions(){
-  if(app.db().groups().size() == 0){
+  /*
+  @BeforeMethod
+  public void ensurePreconditions(){
     app.goTo().groupPage();
-    app.group().create(new GroupData().withName("test1"));
+    if (app.group().all().size() == 0) {
+      app.group().create(new GroupData().withName("test1"));
+    }
+  }*/
+  @BeforeMethod
+  public void ensurePreconditions() {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("test1"));
+    }
   }
-}
+
   @Test
   public void testGroupModification() {
     Groups before = app.db().groups();
@@ -34,7 +35,7 @@ public void ensurePreconditions(){
     app.group().modify(group);
     assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.db().groups();
-    assertThat(after,equalTo(before.without(mofifiedGroup).withAdded(group)));
+    assertThat(after, equalTo(before.without(mofifiedGroup).withAdded(group)));
   }
   /*
   @Test

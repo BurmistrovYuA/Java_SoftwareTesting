@@ -35,6 +35,7 @@ public class GroupHelper extends HelperBase {
   private void selectGroupById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
+
   public void returnToGroupPage() {
     click(By.linkText("group page"));
   }
@@ -54,6 +55,7 @@ public class GroupHelper extends HelperBase {
     groupCashe = null;
     returnToGroupPage();
   }
+
   public void modify(GroupData group) {
     selectGroupById(group.getId());
     initGroupModification();
@@ -79,13 +81,14 @@ public class GroupHelper extends HelperBase {
   }
 
   private Groups groupCashe = null;
+
   public Groups all() {
     if (groupCashe != null) {
       return new Groups(groupCashe);
     }
     groupCashe = new Groups();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
-    for (WebElement element : elements){
+    for (WebElement element : elements) {
       String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute(("value")));
       groupCashe.add(new GroupData().withId(id).withName(name));

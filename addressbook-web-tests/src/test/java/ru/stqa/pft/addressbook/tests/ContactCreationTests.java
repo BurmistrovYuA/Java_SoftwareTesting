@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-public class ContactCreationTests extends TestBase{
+public class ContactCreationTests extends TestBase {
 
   @DataProvider
   public Iterator<Object[]> validContactsFromXml() throws IOException {
@@ -49,7 +49,50 @@ public class ContactCreationTests extends TestBase{
         line = reader.readLine();
       }
       Gson gson = new Gson();
-      List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());
+      List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {
+      }.getType());
+      return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
+    }
+  }
+
+  @Test(dataProvider = "validContactsFromJson")
+  public void testNewContact(ContactData contact) {
+    app.goTo().homePage();
+    Contacts before = app.db().contacts();
+    app.contact().create(contact);
+    app.goTo().homePage();
+    assertEquals(app.contact().count(), before.size() + 1);
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+  }
+
+  @Test(enabled = false)
+  public void testBadNewContact() throws Exception {
+    app.goTo().homePage();
+    Contacts before = app.db().contacts();
+    ContactData contact = new ContactData()
+            .withFirstname("test1'").withLastname("Burmistrov").withAddress("rnd")
+            .withHomePhone("89999999999").withMobilePhone("822222222")
+            .withWorkPhone("833333333").withEmail("asd@yyy.ru");
+    app.contact().create(contact);
+    app.goTo().homePage();
+   // assertEquals(app.contact().count(), before.size());
+    Contacts after = app.db().contacts();
+    assertThat(after, equalTo(before));
+  }
+/*
+* @DataProvider
+  public Iterator<Object[]> validContactsFromJson() throws IOException {
+    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")))) {
+      String json = "";
+      String line = reader.readLine();
+      while (line != null) {
+        json += line;
+        line = reader.readLine();
+      }
+      Gson gson = new Gson();
+      List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {
+      }.getType());
       return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
   }
@@ -58,31 +101,30 @@ public class ContactCreationTests extends TestBase{
   public void testNewContact(ContactData contact) {
     app.goTo().homePage();
     Contacts before = app.contact().all();
-    /*File photo = new File("src/test/resources/photo.jpg");
-    ContactData contact = new ContactData().
-            withFirstname("test1").withLastname("Burmistrov").withAddress("rnd").
-            withHomePhone("89999999999").withMobilePhone("822222222").
-            withWorkPhone("833333333").withEmail("asd@yyy.ru")/*.withPhoto(photo);*/
-    app.contact().create(contact);
+    //File photo = new File("src/test/resources/photo.jpg");
+   // ContactData contact = new ContactData()
+  //          .withFirstname("test1").withLastname("Burmistrov").withAddress("rnd")
+   //         .withHomePhone("89999999999").withMobilePhone("822222222")
+   //         .withWorkPhone("833333333").withEmail("asd@yyy.ru").withPhoto(photo);*/
+   /* app.contact().create(contact);
     app.goTo().homePage();
-    assertEquals(app.contact().count(), before.size() + 1);
-    Contacts after = app.contact().all();
-    assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
-  }
+  assertEquals(app.contact().count(), before.size() + 1);
+  Contacts after = app.contact().all();
+  assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+}
 
   @Test(enabled = false)
   public void testBadNewContact() throws Exception {
     app.goTo().homePage();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().
-            withFirstname("test1'").withLastname("Burmistrov").withAddress("rnd").
-            withHomePhone("89999999999").withMobilePhone("822222222").
-            withWorkPhone("833333333").withEmail("asd@yyy.ru");
+    ContactData contact = new ContactData()
+            .withFirstname("test1'").withLastname("Burmistrov").withAddress("rnd")
+            .withHomePhone("89999999999").withMobilePhone("822222222")
+            .withWorkPhone("833333333").withEmail("asd@yyy.ru");
     app.contact().create(contact);
     app.goTo().homePage();
     assertEquals(app.contact().count(), before.size());
     Contacts after = app.contact().all();
     assertThat(after, equalTo(before));
-  }
-
+  }*/
 }
