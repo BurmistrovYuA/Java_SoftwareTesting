@@ -20,7 +20,7 @@ public class ContactPhoneAndEmailAndAddressTest extends TestBase {
             .withFirstname("test1").withLastname("Burmistrov").withAddress("Rnd")
             .withHomePhone("89999999999").withMobilePhone("+822222222")
             .withWorkPhone("833333333").withEmail("Burmistrov@yandex.ru")
-            .withEmail2("Burmistrof@yandex.ru").withEmail3("Burmistro@yandex.ru").withGroup("test1");
+            .withEmail2("Burmistrof@yandex.ru").withEmail3("Burmistro@yandex.ru");
     if (app.contact().all().size() == 0) {
       app.contact().create(contact);
     }
