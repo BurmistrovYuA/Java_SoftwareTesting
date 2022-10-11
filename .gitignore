@@ -118,3 +118,12 @@ addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/HbConnectio
 addressbook-web-tests/out/test/resources/hibernate.cfg.xml
 addressbook-web-tests/out/test/resources/local.properties
 addressbook-web-tests/out/test/resources/logback.xml
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/HelperBase.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/DbHelper.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ContactHelper.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/HelperBase.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ContactHelper.class

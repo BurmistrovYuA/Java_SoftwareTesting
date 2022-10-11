@@ -64,6 +64,7 @@ public class ContactCreationTests extends TestBase {
     assertEquals(app.contact().count(), before.size() + 1);
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+    verifyContactListInUI();
   }
 
   @Test(enabled = false)
@@ -76,9 +77,10 @@ public class ContactCreationTests extends TestBase {
             .withWorkPhone("833333333").withEmail("asd@yyy.ru");
     app.contact().create(contact);
     app.goTo().homePage();
-   // assertEquals(app.contact().count(), before.size());
+    assertEquals(app.contact().count(), before.size());
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before));
+    verifyContactListInUI();
   }
 /*
 * @DataProvider
