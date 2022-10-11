@@ -237,6 +237,7 @@ public class ContactData {
 
     ContactData that = (ContactData) o;
 
+    if (id != that.id) return false;
     if (!Objects.equals(firstname, that.firstname)) return false;
     if (!Objects.equals(middlename, that.middlename)) return false;
     if (!Objects.equals(lastname, that.lastname)) return false;
@@ -248,12 +249,14 @@ public class ContactData {
     if (!Objects.equals(workPhone, that.workPhone)) return false;
     if (!Objects.equals(email, that.email)) return false;
     if (!Objects.equals(email2, that.email2)) return false;
-    return Objects.equals(email3, that.email3);
+    if (!Objects.equals(email3, that.email3)) return false;
+    return Objects.equals(group, that.group);
   }
 
   @Override
   public int hashCode() {
-    int result = firstname != null ? firstname.hashCode() : 0;
+    int result = id;
+    result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
     result = 31 * result + (middlename != null ? middlename.hashCode() : 0);
     result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
     result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
@@ -265,9 +268,9 @@ public class ContactData {
     result = 31 * result + (email != null ? email.hashCode() : 0);
     result = 31 * result + (email2 != null ? email2.hashCode() : 0);
     result = 31 * result + (email3 != null ? email3.hashCode() : 0);
+    result = 31 * result + (group != null ? group.hashCode() : 0);
     return result;
   }
-
 
   @Override
   public String toString() {
