@@ -56,6 +56,7 @@ public class ContactCreationTests extends TestBase {
       return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
   }
+
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().groupPage();

@@ -70,11 +70,10 @@ public class GroupCreationTests extends TestBase {
     app.goTo().groupPage();
     Groups before = app.db().groups();
     GroupData group = new GroupData().withName("test2'");
-    app.goTo().groupPage();
     app.group().create(group);
     assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.db().groups();
     assertThat(after, equalTo(before));
-
+    verifyGroupListInUI();
   }
 }

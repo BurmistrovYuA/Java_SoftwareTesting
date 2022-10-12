@@ -15,6 +15,7 @@ import java.util.List;
 public class HbConnectionTest {
 
   private SessionFactory sessionFactory;
+
   @BeforeClass
   protected void setUp() throws Exception {
     //A sessionFactory is set up once for an application!
@@ -31,6 +32,7 @@ public class HbConnectionTest {
       StandardServiceRegistryBuilder.destroy(registry);
     }
   }
+
   @Test//(enabled = false)
   public void testHbConnectionGroup() {
     Session session = sessionFactory.openSession();

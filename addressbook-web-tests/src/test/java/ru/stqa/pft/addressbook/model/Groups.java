@@ -21,11 +21,6 @@ public class Groups extends ForwardingSet<GroupData> {
     this.delegate = new HashSet<GroupData>(groups);
   }
 
-  @Override
-  protected Set<GroupData> delegate() {
-    return delegate;
-  }
-
   public Groups withAdded(GroupData group) {
     Groups groups = new Groups(this);
     groups.add(group);
@@ -37,4 +32,19 @@ public class Groups extends ForwardingSet<GroupData> {
     groups.remove(group);
     return groups;
   }
+
+  public boolean isPresent(GroupData group) {
+    for (GroupData thisGroup : delegate) {
+      if (thisGroup.equals(group)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
+  protected Set delegate() {
+    return delegate;
+  }
+
 }

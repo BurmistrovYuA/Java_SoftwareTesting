@@ -13,6 +13,7 @@
         import ru.stqa.pft.addressbook.model.GroupData;
         import ru.stqa.pft.addressbook.model.Groups;
 
+        import java.io.IOException;
         import java.lang.reflect.Method;
         import java.util.Arrays;
         import java.util.stream.Collectors;
@@ -24,14 +25,16 @@
 
           protected static ApplicationManager app;
           Logger logger = (Logger) LoggerFactory.getLogger(TestBase.class);
-
           static {
-            app = new
-                    ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+            try {
+              app = new
+                      ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
+            } catch (IOException e) {
+              e.printStackTrace();
+            }
           }
 
           @BeforeSuite
-
           public void setUp() throws Exception {
             app.init();
           }
@@ -48,7 +51,6 @@
           @BeforeMethod
           public void logTestStart(Method m, Object[] p) {
             logger.info("Start test " + m.getName() + " with parameters" + Arrays.asList(p));
-
           }
 
           @AfterMethod(alwaysRun = true)
@@ -70,7 +72,8 @@
               Contacts dbContacts = app.db().contacts();
               Contacts uiContacts = app.contact().all();
               assertThat(uiContacts, equalTo(dbContacts.stream().map((g)-> new ContactData()
-                      .withId(g.getId()).withFirstname(g.getFirstname())).collect(Collectors.toSet())));
+                      .withId(g.getId()).withFirstname(g.getFirstname()))
+                      .collect(Collectors.toSet())));
             }
           }
         }

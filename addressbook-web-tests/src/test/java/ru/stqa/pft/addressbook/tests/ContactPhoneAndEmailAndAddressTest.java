@@ -4,6 +4,7 @@ import org.hamcrest.CoreMatchers;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -15,6 +16,10 @@ public class ContactPhoneAndEmailAndAddressTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
+    app.goTo().groupPage();
+    if (app.db().groups().size() == 0) {
+      app.group().create(new GroupData().withName("test1"));
+    }
     app.goTo().homePage();
     ContactData contact = new ContactData()
             .withFirstname("test1").withLastname("Burmistrov").withAddress("Rnd")
@@ -52,7 +57,8 @@ public class ContactPhoneAndEmailAndAddressTest extends TestBase {
   }
 
   public static String cleanedPhones(String phone) {
-    return phone.replaceAll("\\s", "").replaceAll("[-()]]", "");
+    return phone
+            .replaceAll("\\s", "").replaceAll("[-()]]", "");
   }
 
   public static String cleanedEmails(String email) {

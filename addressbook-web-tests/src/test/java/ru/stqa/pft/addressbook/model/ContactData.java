@@ -13,11 +13,11 @@ import java.util.Set;
 
 @XStreamAlias("contact")
 @Entity
-@Table( name = "addressbook")
+@Table(name = "addressbook")
 public class ContactData {
+  @XStreamOmitField
   @Id
   @Column(name = "id")
-  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
   @Expose
   @Column(name = "firstname")
@@ -64,20 +64,17 @@ public class ContactData {
   @Type(type = "text")
   @Column(name = "email3")
   private String email3;
-  @ManyToMany(fetch = FetchType.EAGER)
-  @JoinTable(name = "address_in_groups",
-          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
-  private Set<GroupData> groups = new HashSet<GroupData>();
   @Transient
   private String allEmails;
   @Transient
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups",
+          joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
 
-  public File getPhoto() {
-    return new File(photo);
-  }
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
   public String getAllEmails() {
     return allEmails;
@@ -143,13 +140,13 @@ public class ContactData {
     return new Groups(groups);
   }
 
-  public ContactData withId(int id) {
-    this.id = id;
-    return this;
+  public File getPhoto() {
+    return new File(photo);
   }
 
-  public ContactData withPhoto(File photo) {
-    this.photo = photo.getPath();
+
+  public ContactData withId(int id) {
+    this.id = id;
     return this;
   }
 
@@ -171,7 +168,6 @@ public class ContactData {
   public ContactData withNickname(String nickname) {
     this.nickname = nickname;
     return this;
-
   }
 
   public ContactData withCompany(String company) {
@@ -224,10 +220,16 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withPhoto(File photo) {
+    this.photo = photo.getPath();
+    return this;
+  }
+
   public ContactData inGroup(GroupData group) {
     groups.add(group);
     return this;
   }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -270,7 +272,7 @@ public class ContactData {
 
   @Override
   public String toString() {
-    return "ContactsData{" + "id=" + id + ", firstname='" + firstname + '\'' + ", middlename='"
+    return "ContactData{" + "id=" + id + ", firstname='" + firstname + '\'' + ", middlename='"
             + middlename + '\'' + ", lastname='" + lastname + '\'' + ", nickname='" + nickname + '\''
             + ", address='" + address + '\'' + ", company='" + company + '\'' + ", email='" + email
             + '\'' + ", email2='" + email2 + '\'' + ", email3='" + email3 + '\'' + ", homePhone='"
