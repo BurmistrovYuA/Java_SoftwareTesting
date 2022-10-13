@@ -127,14 +127,3 @@ addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCrea
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/HelperBase.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ContactHelper.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ContactHelper.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/HelperBase.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactAddInGroupTest.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactDeleteFromGroup.class
-addressbook-web-tests/out/test/resources/testng-check.xml
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/ContactHelper.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/appmanager/HelperBase.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/model/ContactData.class
-addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactCreationTests.class
