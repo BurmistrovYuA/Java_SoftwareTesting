@@ -19,7 +19,7 @@ public class ApplicationManager {
 
   private String browser;
   private RegistrationHelper registrationHelper;
-
+  private FtpHelper ftp;
   public ApplicationManager(String browser) {
     this.browser = browser;
     properties = new Properties();
@@ -34,6 +34,13 @@ public class ApplicationManager {
     if (wd != null) {
       wd.quit();
     }
+  }
+
+  public FtpHelper ftp() {
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
   }
 
   public String getProperty(String key) {
@@ -66,4 +73,6 @@ public class ApplicationManager {
     }
     return wd;
   }
+
+
 }
