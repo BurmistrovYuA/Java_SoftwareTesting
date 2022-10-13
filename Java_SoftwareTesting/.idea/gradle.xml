@@ -16,10 +16,10 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../mantis-tests" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../mantis-tests1" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../mantis-tests" />
+            <option value="$PROJECT_DIR$/../mantis-tests1" />
           </set>
         </option>
       </GradleProjectSettings>

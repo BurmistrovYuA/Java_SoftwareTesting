@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,11 +14,19 @@ import java.time.Duration;
 import java.util.Properties;
 
 public class ApplicationManager {
-  private final Properties properties;
-  WebDriver wd;
+
+  private Properties properties;
+  private ContactHelper contactHelper;
+  private SessionHelper sessionHelper;
+  private NavigationHelper navigationHelper;
+  private GroupHelper groupHelper;
+  private DbHelper dbHelper;
   private String browser;
 
-  public ApplicationManager(String browser){
+  WebDriver wd;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  public ApplicationManager(String browser) throws IOException  {
     this.browser = browser;
     properties = new Properties();
   }
@@ -26,7 +35,10 @@ public class ApplicationManager {
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-  if (browser.equals(BrowserType.FIREFOX)) {
+    dbHelper = new DbHelper();
+
+    if (browser.equals(BrowserType.FIREFOX)) {
+
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
       wd = new ChromeDriver();
@@ -35,10 +47,29 @@ public class ApplicationManager {
     }
     wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     wd.get(properties.getProperty("web.baseUrl"));
-    }
+    groupHelper = new GroupHelper(wd);
+    navigationHelper = new NavigationHelper(wd);
+    sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
+    sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
+    dbHelper= new DbHelper();
+  }
 
   public void stop() {
+    wd.findElement(By.linkText("Logout")).click();
     wd.quit();
+  }
+
+  public GroupHelper group() { return groupHelper; }
+
+  public NavigationHelper goTo() {
+    return navigationHelper;
+  }
+
+  public ContactHelper contact() { return contactHelper; }
+
+  public DbHelper db() {
+    return dbHelper;
   }
 
 
