@@ -39,5 +39,5 @@ public class ContactDeleteFromGroup extends TestBase  {
     app.contact().deleteContactFromGroup();
     Assert.assertFalse(app.db().getContactById(selectContact.getId()).getGroups().isPresent(selectGroup));
   }
-  
+
 }
