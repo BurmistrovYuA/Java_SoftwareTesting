@@ -7,32 +7,9 @@ repositories {
 dependencies {
     implementation 'org.testng:testng:6.9.10'
     implementation 'org.seleniumhq.selenium:selenium-java:2.52.0'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- //   testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
-    testImplementation 'org.hamcrest:java-hamcrest:2.0.0.0'
- //   testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.0'
-    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     implementation group: 'commons-net', name: 'commons-net', version: '3.8.0'
     implementation 'org.subethamail:subethasmtp:3.1.7'
     implementation 'ru.lanwen.verbalregex:java-verbal-expressions:1.8'
-}
-
-tasks.withType(Test) {
-    useTestNG()/* {
-        suites 'src/test/resources/testng.xml'
-    }*/
-    if (project.hasProperty('browser')) {
-        systemProperty 'browser', "${browser}"
-    }
-
-    if (project.hasProperty('target')) {
-        systemProperty 'target', "${target}"
-    }
-
-    if (project.hasProperty('verifyUI')) {
-=======
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
 }
@@ -48,45 +25,6 @@ test {
         systemProperty 'target', "${target}"
     }
     if (project.hasProperty('verifyUI')){
->>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
-=======
-    implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
-}
-
-test {
-    useTestNG {
-        suites 'src/test/resources/testng.xml'
-    }
-    if (project.hasProperty('browser')){
-        systemProperty 'browser', "${browser}"
-    }
-    if (project.hasProperty('target')){
-        systemProperty 'target', "${target}"
-    }
-    if (project.hasProperty('verifyUI')){
->>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
-=======
-    implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
-    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
-}
-
-test {
-    useTestNG {
-        suites 'src/test/resources/testng.xml'
-    }
-    if (project.hasProperty('browser')){
-        systemProperty 'browser', "${browser}"
-    }
-    if (project.hasProperty('target')){
-        systemProperty 'target', "${target}"
-    }
-    if (project.hasProperty('verifyUI')){
->>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
         systemProperty 'verifyUI', "${verifyUI}"
     }
 }
-
-
-
-

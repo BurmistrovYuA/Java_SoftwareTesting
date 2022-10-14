@@ -19,7 +19,10 @@ public class ApplicationManager {
   private String browser;
   private RegistrationHelper registrationHelper;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
   public ApplicationManager(String browser) {
     this.browser = browser;
     properties = new Properties();
