@@ -19,9 +19,10 @@ import java.util.List;
 public class HttpSession {
   private CloseableHttpClient httpClient;
   private ApplicationManager app;
+
   public HttpSession(ApplicationManager app){
     this.app = app;
-    httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build(); // в созданном объекте HttpClients устанавливается стратегия перенаправления setRedirectStrategy(если ее не установить, получим ответ 302) - автоматическая LaxRedirectStrategy
+    httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build();
   }
 
   public boolean login(String username, String password) throws Exception{
