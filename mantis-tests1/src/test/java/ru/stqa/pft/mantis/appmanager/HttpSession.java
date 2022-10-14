@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -15,14 +16,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class HttpSession {
   private CloseableHttpClient httpClient;
   private ApplicationManager app;
 
   public HttpSession(ApplicationManager app){
     this.app = app;
-    httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build();
+    httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build(); 
   }
 
   public boolean login(String username, String password) throws Exception{
@@ -37,6 +37,7 @@ public class HttpSession {
     String body = getTextFrom(response);
     return  body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
+
   private String getTextFrom(CloseableHttpResponse response) throws IOException {
     try {
       return EntityUtils.toString(response.getEntity());
@@ -44,12 +45,12 @@ public class HttpSession {
       response.close();
     }
   }
+
   public boolean isLoggedInAs(String username) throws IOException{
     HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/login.php");
     CloseableHttpResponse response = httpClient.execute(get);
     String body = getTextFrom(response);
     return  body.contains(String.format("<span class=\"user-info\">%s</span>", username));
   }
-
 
 }

@@ -8,4 +8,5 @@ public class MailMessage {
     this.to = to;
     this.text = text;
   }
+
 }
