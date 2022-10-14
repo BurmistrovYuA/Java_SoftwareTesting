@@ -3,7 +3,7 @@ package ru.stqa.pft.mantis.tests;
 import org.testng.annotations.Test;
 import ru.stqa.pft.mantis.appmanager.HttpSession;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 public class LoginTests extends TestBase{
 

@@ -9,19 +9,18 @@ import org.openqa.selenium.remote.BrowserType;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
   private final Properties properties;
-   WebDriver wd;
+  private WebDriver wd;
 
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
-  private JamesHelper jamesHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -68,7 +67,7 @@ public class ApplicationManager {
       } else if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver();
       }
-      wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+      wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
       wd.get(properties.getProperty("web.baseUrl"));
     }
     return wd;
@@ -79,13 +78,6 @@ public class ApplicationManager {
       mailHelper = new MailHelper(this);
     }
     return mailHelper;
-  }
-
-  public JamesHelper james() {
-    if (jamesHelper == null) {
-      jamesHelper = new JamesHelper(this);
-    }
-    return jamesHelper;
   }
 
 

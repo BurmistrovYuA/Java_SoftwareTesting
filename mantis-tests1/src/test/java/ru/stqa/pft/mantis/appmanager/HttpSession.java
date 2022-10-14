@@ -22,10 +22,10 @@ public class HttpSession {
 
   public HttpSession(ApplicationManager app){
     this.app = app;
-    httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build(); 
+    httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build();
   }
 
-  public boolean login(String username, String password) throws Exception{
+  public boolean login(String username, String password) throws IOException{
     HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login.php");
     List<NameValuePair> params = new ArrayList<>();
     params.add(new BasicNameValuePair("username", username));
