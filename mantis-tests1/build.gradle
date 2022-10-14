@@ -8,6 +8,7 @@ dependencies {
     implementation 'org.testng:testng:6.9.10'
     implementation 'org.seleniumhq.selenium:selenium-java:2.52.0'
 <<<<<<< HEAD
+<<<<<<< HEAD
  //   testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.36'
     testImplementation 'org.hamcrest:java-hamcrest:2.0.0.0'
  //   testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.4.0'
@@ -30,6 +31,23 @@ tasks.withType(Test) {
     }
 
     if (project.hasProperty('verifyUI')) {
+=======
+    implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
+}
+
+test {
+    useTestNG {
+        suites 'src/test/resources/testng.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+    if (project.hasProperty('verifyUI')){
+>>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
 =======
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
     implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'

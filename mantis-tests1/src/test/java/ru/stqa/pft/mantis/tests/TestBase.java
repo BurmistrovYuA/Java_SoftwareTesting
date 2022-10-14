@@ -13,20 +13,10 @@ public class TestBase {
   @BeforeSuite
   public void setUp() throws Exception {
     app.init();
-<<<<<<< HEAD
-    app.ftp().upload(new File("src/test/resources/config_inc.php")
-            , "config_inc.php", "config_inc.php.bak");
-
-=======
->>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
   }
 
   @AfterSuite(alwaysRun = true)
   public void tearDown() throws Exception {
-<<<<<<< HEAD
-    app.ftp().restore("config_inc.php.bak", "config_inc.php");
-=======
->>>>>>> parent of 7eb05cf (Лекция 8.5. Передача файлов на удалённую машину по протоколу FTP)
     app.stop();
   }
 }
