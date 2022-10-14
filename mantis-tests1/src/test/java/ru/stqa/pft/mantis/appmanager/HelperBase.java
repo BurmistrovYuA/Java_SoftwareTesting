@@ -29,7 +29,6 @@ public class HelperBase {
       if (!text.equals(existingText)) {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
-
       }
     }
   }
