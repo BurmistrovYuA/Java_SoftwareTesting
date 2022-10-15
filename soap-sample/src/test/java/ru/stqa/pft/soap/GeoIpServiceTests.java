@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class GeoIpServiceTests {
-/
+
   @Test
   public void testMyIp() {
 
