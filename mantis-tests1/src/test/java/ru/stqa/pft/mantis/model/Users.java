@@ -6,41 +6,16 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Users extends ForwardingSet<UserData> {
-  private Set<UserData> delegete;
-
-  public Users(Users users) {
-    this.delegete = new HashSet<UserData>(users.delegete);
-  }
-
-  public Users(Collection<UserData> users) {
-    this.delegete = new HashSet<UserData>(users);
-  }
+public class Users extends ForwardingSet<UserData>
+{
+  private Set<UserData> delegate;
 
   @Override
   protected Set delegate() {
-    return delegete;
+    return delegate;
   }
+  public Users(Collection<UserData> users) {
+    this.delegate = new HashSet<UserData>(users);
 
-  public Users withAdded(UserData user) {
-    Users users = new Users(this);
-    users.add(user);
-    return users;
   }
-
-  public Users without(UserData user) {
-    Users users = new Users(this);
-    users.remove(user);
-    return users;
-  }
-
-  public boolean isPresented(UserData user) {
-    for (UserData thisUser : delegete) {
-      if (thisUser.equals(user)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
 }

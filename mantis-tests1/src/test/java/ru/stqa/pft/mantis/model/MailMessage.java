@@ -1,6 +1,7 @@
 package ru.stqa.pft.mantis.model;
 
 public class MailMessage {
+
   public String to;
   public String text;
 
@@ -8,5 +9,4 @@ public class MailMessage {
     this.to = to;
     this.text = text;
   }
-
 }
