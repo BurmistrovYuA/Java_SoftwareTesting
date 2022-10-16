@@ -24,7 +24,7 @@ public class ApplicationManager {
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
   private DbHelper dbHelper;
-  private ResetPasswordHelper resetPasswordHelper;
+  private PasswordChangeHelper passwordChangeHelper;
   private SoapHelper soapHelper;
 
   public ApplicationManager(String browser) {
@@ -63,7 +63,12 @@ public class ApplicationManager {
     }
     return registrationHelper;
   }
-
+  public PasswordChangeHelper changePassword() {
+    if (passwordChangeHelper == null) {
+      passwordChangeHelper = new PasswordChangeHelper(this);
+    }
+    return  passwordChangeHelper;
+  }
   public FtpHelper ftp() {
     if (ftp == null) {
       ftp = new FtpHelper(this);
@@ -89,14 +94,14 @@ public class ApplicationManager {
 
   public MailHelper mail() {
     if (mailHelper == null) {
-      mailHelper = new MailHelper(this); //если MailHelper == null, то его  инициализируем
+      mailHelper = new MailHelper(this);
     }
     return mailHelper;
   }
 
   public JamesHelper james() {
     if (jamesHelper == null) {
-      jamesHelper = new JamesHelper(this); //если jamesHelper == null, то его  инициализируем
+      jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
   }
@@ -106,13 +111,6 @@ public class ApplicationManager {
       dbHelper = new DbHelper(this);
     }
     return dbHelper;
-  }
-
-  public ResetPasswordHelper resetPassword() {
-    if (resetPasswordHelper == null) {
-      resetPasswordHelper = new ResetPasswordHelper(this);
-    }
-    return resetPasswordHelper;
   }
 
   public SoapHelper soap() {
