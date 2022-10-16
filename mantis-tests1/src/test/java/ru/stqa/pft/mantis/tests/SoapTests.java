@@ -1,6 +1,5 @@
 package ru.stqa.pft.mantis.tests;
 
-
 import org.testng.annotations.Test;
 import ru.stqa.pft.mantis.model.Issue;
 import ru.stqa.pft.mantis.model.Project;
@@ -10,7 +9,7 @@ import java.net.MalformedURLException;
 import java.rmi.RemoteException;
 import java.util.Set;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 public class SoapTests extends TestBase{
   @Test
@@ -31,7 +30,7 @@ public class SoapTests extends TestBase{
     Issue createdIssue = app.soap().addIssue(issue);
     assertEquals(issue.getSummary(), createdIssue.getSummary());
   }
-
+/*
   @Test
   public void testCreateIssueWithSkip() throws MalformedURLException, ServiceException, RemoteException {
     if(isIssueOpen(1) == true){
@@ -44,5 +43,5 @@ public class SoapTests extends TestBase{
       Issue createdIssue = app.soap().addIssue(issue);
       assertEquals(issue.getSummary(), createdIssue.getSummary());
     }
-  }
+  }*/
 }
