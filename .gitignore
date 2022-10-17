@@ -177,3 +177,6 @@ addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactDele
 mantis-tests1/out/test/classes/ru/stqa/pft/mantis/tests/PasswordChangeTest.class
 mantis-tests1/out/test/classes/ru/stqa/pft/mantis/appmanager/PasswordChangeHelper.class
 mantis-tests1/out/test/resources/hibernate.cfg.xml
+rest-sample/out/test/classes/ru/stqa/pft/rest/RestTests.class
+rest-sample/out/test/classes/ru/stqa/pft/rest/RestTests$1.class
+rest-sample/out/test/classes/ru/stqa/pft/rest/Issue.class
