@@ -180,3 +180,5 @@ mantis-tests1/out/test/resources/hibernate.cfg.xml
 rest-sample/out/test/classes/ru/stqa/pft/rest/RestTests.class
 rest-sample/out/test/classes/ru/stqa/pft/rest/RestTests$1.class
 rest-sample/out/test/classes/ru/stqa/pft/rest/Issue.class
+rest-sample/out/test/classes/ru/stqa/pft/rest/RestAssuredTests.class
+rest-sample/out/test/classes/ru/stqa/pft/rest/RestAssuredTests$1.class
