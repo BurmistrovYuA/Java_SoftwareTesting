@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
-import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.message.BasicNameValuePair;
 import org.testng.annotations.Test;
@@ -14,9 +13,10 @@ import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
-public class RestTests {
+public class RestTests extends TestBase {
 
-  @Test
+
+  @Test(enabled = false)
   public void testCreateIssue() throws IOException {
     Set<Issue> oldIssues = getIssues();
     Issue newIssue = new Issue().withSubject("test subject").withDescription("new test issue");
@@ -35,9 +35,7 @@ public class RestTests {
     return new Gson().fromJson(issues, new TypeToken<Set<Issue>>() {}.getType());
   }
 
-  private Executor getExecutor() {
-    return Executor.newInstance().auth("288f44776e7bec4bf44fdfeb1e646490", "");
-  }
+
 
   private int createIssue(Issue newIssue) throws IOException {
     String json =  getExecutor().execute(Request.Post("https://bugify.stqa.ru/api/issues.json")
@@ -46,6 +44,21 @@ public class RestTests {
             .returnContent().asString();
     JsonElement parsed = new JsonParser().parse(json);
     return  parsed.getAsJsonObject().get("issue_id").getAsInt();
+  }
+
+  @Test
+  public void testCreateIssueWithSkip() throws IOException {
+    if(isIssueOpen(2295) == true){
+      skipIfNotFixed(2295);//2296 closed->skip             2295 open
+    } else{
+      Set<Issue> oldIssues = getIssues();
+      Issue newIssue = new Issue().withSubject("Task 20").withDescription("20 task test issue");
+      int issueId = createIssue(newIssue);
+      Set<Issue> newIssues = getIssues();
+      oldIssues.add(newIssue.withId(issueId));
+      assertEquals(newIssues, oldIssues);
+
+    }
   }
 }
 /*
