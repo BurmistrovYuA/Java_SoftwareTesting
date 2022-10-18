@@ -184,3 +184,6 @@ rest-sample/out/test/classes/ru/stqa/pft/rest/RestAssuredTests.class
 rest-sample/out/test/classes/ru/stqa/pft/rest/RestAssuredTests$1.class
 rest-sample/out/test/classes/ru/stqa/pft/rest/TestBase.class
 github-sample/out/test/classes/ru/stqa/pft/github/GitHubTests.class
+addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactAddInGroupTest.class
+addressbook-web-tests/out/test/resources/testng-check.xml
+addressbook-web-tests/out/test/resources/testng-groups.xml
