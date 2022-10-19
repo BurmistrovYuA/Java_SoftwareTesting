@@ -1,0 +1,30 @@
+[
+  {
+    "firstname": "firstname 0",
+    "middlename": "Middlename 0",
+    "lastname": "Lastname 0",
+    "nickname": "Nickname 0",
+    "address": "Address 0",
+    "company": "Company 0",
+    "homePhone": "89285522510",
+    "mobilePhone": "89285522520",
+    "workPhone": "+89285522530",
+    "email": "Email0@ya.ru",
+    "email2": "Email20@ya.ru",
+    "email3": "Email31@ya.ru"
+  },
+  {
+    "firstname": "firstname 1",
+    "middlename": "Middlename 1",
+    "lastname": "Lastname 1",
+    "nickname": "Nickname 1",
+    "address": "Address 1",
+    "company": "Company 1",
+    "homePhone": "89285522511",
+    "mobilePhone": "89285522521",
+    "workPhone": "+89285522531",
+    "email": "Email1@ya.ru",
+    "email2": "Email21@ya.ru",
+    "email3": "Email31@ya.ru"
+  }
+]

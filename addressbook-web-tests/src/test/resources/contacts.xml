@@ -1,0 +1,72 @@
+<list>
+  <group>
+    <name>Name 0</name>
+    <middlename>Middlename 0</middlename>
+    <last__name>Last_name 0</last__name>
+    <nickname>Nickname 0</nickname>
+    <address>Address 0</address>
+    <company>Company 0</company>
+    <homePhone>89285522510</homePhone>
+    <mobilePhone>89285522520</mobilePhone>
+    <workPhone>89285522530</workPhone>
+    <email>Email0@ya.ru</email>
+    <email2>Email20@ya.ru</email2>
+    <email3>Email31@ya.ru</email3>
+  </group>
+  <group>
+    <name>Name 1</name>
+    <middlename>Middlename 1</middlename>
+    <last__name>Last_name 1</last__name>
+    <nickname>Nickname 1</nickname>
+    <address>Address 1</address>
+    <company>Company 1</company>
+    <homePhone>89285522511</homePhone>
+    <mobilePhone>89285522521</mobilePhone>
+    <workPhone>89285522531</workPhone>
+    <email>Email1@ya.ru</email>
+    <email2>Email21@ya.ru</email2>
+    <email3>Email31@ya.ru</email3>
+  </group>
+  <group>
+    <name>Name 2</name>
+    <middlename>Middlename 2</middlename>
+    <last__name>Last_name 2</last__name>
+    <nickname>Nickname 2</nickname>
+    <address>Address 2</address>
+    <company>Company 2</company>
+    <homePhone>89285522512</homePhone>
+    <mobilePhone>89285522522</mobilePhone>
+    <workPhone>89285522532</workPhone>
+    <email>Email2@ya.ru</email>
+    <email2>Email22@ya.ru</email2>
+    <email3>Email32@ya.ru</email3>
+  </group>
+  <group>
+    <name>Name 3</name>
+    <middlename>Middlename 3</middlename>
+    <last__name>Last_name 3</last__name>
+    <nickname>Nickname 3</nickname>
+    <address>Address 3</address>
+    <company>Company 3</company>
+    <homePhone>89285522513</homePhone>
+    <mobilePhone>89285522523</mobilePhone>
+    <workPhone>89285522533</workPhone>
+    <email>Email3@ya.ru</email>
+    <email2>Email23@ya.ru</email2>
+    <email3>Email33@ya.ru</email3>
+  </group>
+  <group>
+    <name>Name 4</name>
+    <middlename>Middlename 4</middlename>
+    <last__name>Last_name 4</last__name>
+    <nickname>Nickname 4</nickname>
+    <address>Address 4</address>
+    <company>Company 4</company>
+    <homePhone>89285522514</homePhone>
+    <mobilePhone>89285522524</mobilePhone>
+    <workPhone>89285522534</workPhone>
+    <email>Email4@ya.ru</email>
+    <email2>Email24@ya.ru</email2>
+    <email3>Email34@ya.ru</email3>
+  </group>
+</list>
