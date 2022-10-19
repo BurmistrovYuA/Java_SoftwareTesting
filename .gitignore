@@ -187,3 +187,6 @@ github-sample/out/test/classes/ru/stqa/pft/github/GitHubTests.class
 addressbook-web-tests/out/test/classes/ru/stqa/pft/addressbook/tests/ContactAddInGroupTest.class
 addressbook-web-tests/out/test/resources/testng-check.xml
 addressbook-web-tests/out/test/resources/testng-groups.xml
+addressbook-web-tests/out/test/resources/temp
+addressbook-web-tests/out/test/resources/remote.properties
+addressbook-web-tests/out/test/resources/remote.properties

@@ -1,0 +1,13 @@
+web.baseUrl = http://192.168.0.104/addressbook/
+web.adminLogin = admin
+web.adminPassword = secret
+selenium.server = http://192.168.0.104:4444/wd/hub
+
+web.baseUrl = http://localhost/addressbook/
+web.adminLogin = admin
+web.adminPassword = secret
+selenium.server = http://localhost:4444/wd/hub
+
+java -jar jenkins.war
+java -jar selenium-server-4.5.0.jar standalone
+ipconfig /all
